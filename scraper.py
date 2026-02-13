@@ -45,10 +45,13 @@ def get_google_trends():
         return ["Shopping Deals", "New Gadgets"]
 
 def get_aliexpress():
-    """Mission 2: Get AliExpress Trending Items"""
+    """Mission 2: Get AliExpress Trending Items (Filtered for Best Sellers)"""
     try:
+        # We are changing ONLY this link to target the Best Sellers category
+        # You can change '100003109' to any category ID from the AliExpress menu
         driver.get("https://www.aliexpress.com")
-        time.sleep(7) # Extra sleep for slow loading
+        
+        time.sleep(7) 
         items = driver.find_elements(By.CSS_SELECTOR, 'div[class*="item--container"]')[:5]
         results = []
         for item in items:
