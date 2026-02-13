@@ -14,5 +14,10 @@ jobs:
           python-version: '3.9'
       - name: Install Tools
         run: pip install -r requirements.txt
-      - name: Run Scraper
-        run: python scraper.py
+      - name: Save the Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add trending.json
+          git commit -m "Robot: Update trending list" || echo "No changes to commit"
+          git push
