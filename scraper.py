@@ -15,3 +15,12 @@ driver.get("https://www.aliexpress.com")
 # Take a picture of what it sees (This proves it worked!)
 print(driver.title)
 driver.quit()
+
+# Change this at the end of your script:
+import json
+
+# ... (your scraping logic)
+
+# 4. Save the list to a JSON file
+with open("trending.json", "w") as f:
+    json.dump(products, f, indent=4)
